@@ -1,0 +1,101 @@
+     #!/usr/bin/env bash
+     primary_binary=( "ubuntu-desktop" "bash-completion" "apt-transport-https" "ca-certificates" "curl" "gnupg-agent" "software-properties-common" "python3-pip" "git")
+    
+     #apt-get update
+     # install GUI
+
+     for i in ${!primary_binary[@]}; do
+      dpkg -s ${primary_binary[$i]} &> /dev/null
+      if [ $? -ne 0 ];
+        then
+          echo "not installed"
+         # apt-get install -y ${primary_binary[$i]}
+        else 
+          echo "${primary_binary[$i]} is already installed"
+     fi
+
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      add-apt-repository \
+        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+        $(lsb_release -cs) \
+        stable"
+
+    
+     
+     # Install Bash Completion
+     #apt-get install -y \
+      #bash-completion
+
+     # Install packages to allow apt to use a repository over HTTPS
+     #apt-get install -y \
+     # apt-transport-https \
+     # ca-certificates \
+     # curl \
+     # gnupg-agent \
+     # software-properties-common
+
+     # Add Docker's official GPG key
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    
+      add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+
+     # Update the apt package index
+     apt-get update
+     
+     # Install the latest version of Docker Engine- Community and containerd
+     apt-get install -y \
+      docker-ce \
+      docker-ce-cli \
+      containerd.io
+     # Download the current stable release of Docker Compose
+     curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+     # Apply executable permissions to the Docker Compose binary:
+     chmod +x /usr/local/bin/docker-compose
+     
+     # Creating a symbolic link to /usr/bin/docker-compose
+     ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+
+     # Download and install bash command completion for Docker Compose
+     curl -L https://raw.githubusercontent.com/docker/compose/1.25.4/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+
+     # Post Installation set up for Docker
+     # Manage Docker as a non root user
+
+     # Create the docker group
+     groupadd docker
+     # Add vagrant user to the docker group
+     usermod -aG docker vagrant
+     
+
+
+     # Install Pip3
+     #apt install -y \
+     # python3-pip \
+     # git
+     
+     # Download and install visual studio code
+     snap install --classic code
+
+     # Download and install Pycharm Community edition
+     snap install pycharm-community --classic
+
+     # Download and register the keys from Oracle Virtualbox
+     curl  https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~eoan_amd64.deb
+     apt install ./virtualbox-6.1*
+     rm -f./virtualbox-6.1*
+    
+
+     # Download and install Vagrant 
+     curl https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
+     apt install ./vagrant*
+     rm -f ./vagrant*
+
+     # Create Practicum Directory
+     mkdir /home/vagrant/Desktop/practicum
+     
+     # Clone Team 3 Docker-Dev Repo into the practicum directory
+     git clone https://github.com/Practicum-Team-3/black-widow-docker-dev.git /home/vagrant/Desktop/practicum
+     

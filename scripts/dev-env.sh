@@ -78,45 +78,9 @@ vbox="virtualbox"
 vagran_v="vagrant --version"
 vagrant="vagrant"
 
-
-#$vbox_v &> /dev/null
-#if [ "$?" -ne 0 ] 
-#then
-#	echo ""$vbox" not installed"
-#	curl -o $vbox.deb https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~eoan_amd64.deb
-#	apt install -y ./$vbox.deb 
-#	rm -f $vbox.deb
-#else
-#	echo ""$vbox" is already installed"
-#fi
-
-
-#$vagrant_v &> /dev/null
-#if [ "$?" -ne 0 ] 
-#then
-#	echo ""$vagrant" not installed"
-#	curl -o $vagrant.deb https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
-#	apt install -y ./$vagrant.deb 
-#	rm -f $vagrant.deb
-#else
-#	echo ""$vagrant" is already installed"
-#fi
-
-#echo "Downloading and installing VirtualBox"
-#curl -o vitualbox-6.1.deb https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~eoan_amd64.deb
-#apt install -y ./vitualbox-6.1.deb 
-#rm -f ./virtualbox-6.1.deb
-
-
 echo "Downloading and installing Vagrant"
 curl -o vagrant.deb https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
 apt install -y ./vagrant.deb
 rm -f ./vagrant.deb
-
-echo "Creating the Practicum Directory"
-mkdir /home/vagrant/Desktop/practicum
-
-echo "Cloning Team 3 Docker-Dev Repo into the practicum directory"
-git clone https://github.com/Practicum-Team-3/black-widow-docker-dev.git /home/vagrant/Desktop/practicum
 
 
