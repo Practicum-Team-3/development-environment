@@ -21,5 +21,6 @@ Once the script has finished run:
 sudo shutdown now -r
 
 After the environment has restarted run this command:
+./scripts/virtualbox-setup.sh
 
 ./scripts/practicum-setup.sh

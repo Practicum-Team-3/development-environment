@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 echo "Creating the Practicum Directory"
 mkdir /home/vagrant/Desktop/practicum
 
