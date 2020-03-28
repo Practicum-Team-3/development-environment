@@ -78,9 +78,17 @@ vbox="virtualbox"
 vagran_v="vagrant --version"
 vagrant="vagrant"
 
+
+echo "Downloading and installing Virtualbox"
+curl -o $vbox.deb https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~eoan_amd64.deb
+apt install -y ./$vbox.deb
+rm -f ./$vbox.deb
+
+
+
 echo "Downloading and installing Vagrant"
-curl -o vagrant.deb https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
-apt install -y ./vagrant.deb
-rm -f ./vagrant.deb
+curl -o $vagrant.deb https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
+apt install -y ./$vagrant.deb
+rm -f ./$vagrant.deb
 
 
