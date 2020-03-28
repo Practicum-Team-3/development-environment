@@ -14,7 +14,7 @@ username: vagrant
 password: vagrant
 
 Run:
-sudo ./dev-env
+sudo ./dev-env.sh
 
 Once the script has finished run:
 
