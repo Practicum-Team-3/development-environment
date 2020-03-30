@@ -1,26 +1,25 @@
-# development-environment
+# Development environment
 
-Clone this repo into your host machine
-
-Requirements: 
-- Virtualbox 6.1
+ # Requirements: 
+- Virtualbox 6.1 <br/>
 - Vagrant
 
-Run:
-vagrant up
+# Step to follow:
+ 1. Clone this repo into your host machine by running: <br/>
+    - `vagrant up`
 
-Log into the virtual machine with the following credentials
-username: vagrant
-password: vagrant
+ 2. Log into the virtual machine using the following credentials:
+    `username: vagrant`
+    - `password: vagrant`
 
-Run:
-sudo ./scripts/dev-env.sh
+3. Run the provisioning script: <br/>
+    - `sudo ./scripts/dev-env.sh`
 
-Once the script has finished run:
+4. Once the script has finished run execute the following command: <br/>
 
-sudo shutdown now -r
+    - `sudo shutdown now -r`
 
-After the environment has restarted run this command:
-./scripts/virtualbox-setup.sh
+5. After the environment has restarted run the following commands: <br/>
+    - `./scripts/virtualbox-setup.sh`
 
-./scripts/practicum-setup.sh
+    - `./scripts/practicum-setup.sh`
