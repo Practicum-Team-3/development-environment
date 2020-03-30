@@ -8,8 +8,8 @@
  1. Clone this repo into your host machine by running: <br/>
     - `vagrant up`
 
- 2. Log into the virtual machine using the following credentials:
-    `username: vagrant`
+ 2. Log into the virtual machine using the following credentials: <br/>
+    - `username: vagrant`
     - `password: vagrant`
 
 3. Run the provisioning script: <br/>
