@@ -4,7 +4,7 @@
 - Virtualbox 6.1 <br/>
 - Vagrant
 
-# Step to follow:
+# Steps to follow:
  1. Clone this repo into your host machine by running: <br/>
     - `vagrant up`
 
