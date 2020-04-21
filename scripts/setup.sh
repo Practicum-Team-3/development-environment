@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 function aptInstall() {
 	binary=("$@")
 	for i in "${binary[@]}" ; do
@@ -7,7 +8,7 @@ function aptInstall() {
 		if [ "$?" -ne 0 ] 
 		then
 			echo ""$i" not installed"
-			apt-get install -y "$i"
+			sudo apt-get install -y "$i"
 		else
 			echo ""$i" is already installed"
 		fi
@@ -17,9 +18,9 @@ function aptInstall() {
 declare -a primary_binary=( "ubuntu-desktop" "bash-completion" "apt-transport-https" "ca-certificates" "curl" "gnupg-agent" "software-properties-common" "linux-headers-generic" "linux-headers-5.3.0-29-generic")
 
 
-declare -a secondary_binary=( "python3-pip" "git" "docker-ce" "docker-ce-cli" "containerd.io")
+declare -a secondary_binary=( "python3-pip" "git" "docker-ce" "docker-ce-cli" "containerd.io" )
 
-apt-get update
+sudo apt-get update
 aptInstall "${primary_binary[$@]}"
 
 
@@ -30,7 +31,6 @@ add-apt-repository \
     $(lsb_release -cs) \
     stable"
 
-declare -a secondary_binary=( "python3-pip" "git" "docker-ce" "docker-ce-cli" "containerd.io")
 
 aptInstall "${secondary_binary[@]}"
 
@@ -64,8 +64,8 @@ else
 fi
 
 
-echo "Downloading and installing Visual Studio"
-snap install --classic code
+echo "Downloading and installing Visual Studio code"
+sudo snap install --classic code
 
 
 echo "Downloading and installing Pycharm Community Edition"
@@ -80,7 +80,7 @@ vagrant="vagrant"
 
 
 echo "Downloading and installing Virtualbox"
-curl -o $vbox.deb https://download.virtualbox.org/virtualbox/6.1.4/virtualbox-6.1_6.1.4-136177~Ubuntu~eoan_amd64.deb
+curl -o $vbox.deb https://download.virtualbox.org/virtualbox/6.1.6/virtualbox-6.1_6.1.6-137129~Ubuntu~bionic_amd64.deb
 apt install -y ./$vbox.deb
 rm -f ./$vbox.deb
 
@@ -90,5 +90,10 @@ echo "Downloading and installing Vagrant"
 curl -o $vagrant.deb https://releases.hashicorp.com/vagrant/2.2.7/vagrant_2.2.7_x86_64.deb
 apt install -y ./$vagrant.deb
 rm -f ./$vagrant.deb
+
+
+
+
+
 
 

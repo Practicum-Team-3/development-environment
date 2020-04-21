@@ -7,19 +7,15 @@
 # Steps to follow:
  1. Clone this repo into your host machine by running: <br/>
     - `vagrant up`
+ 2. After the environment has finished setting up, restart the environment.
 
- 2. Log into the virtual machine using the following credentials: <br/>
+ 3. Log into the virtual machine using the following credentials: <br/>
     - `username: vagrant`
     - `password: vagrant`
 
-3. Run the provisioning script: <br/>
-    - `sudo ./scripts/dev-env.sh`
-
-4. Once the script has finished run execute the following command: <br/>
-
-    - `sudo shutdown now -r`
 
 5. After the environment has restarted run the following commands: <br/>
-    - `./scripts/virtualbox-setup.sh`
-
-    - `./scripts/practicum-setup.sh`
+    /vagrant/setup/
+    - `./setup/config.sh`
+    - `./setup/virtualbox-setup.sh`
+    - `./setup/practicum-setup.sh`
